@@ -1,0 +1,75 @@
+{
+  "assets": [
+    {
+      "archive": "tar.gz",
+      "filename": "nxs-0.1.32-darwin-amd64.tar.gz",
+      "goarch": "amd64",
+      "goos": "darwin",
+      "sha256": "e4d21474730473c8252ffb8930a506eaae6b951b48eaae21a406a669e5bb1609",
+      "sidecars": [
+        "rg"
+      ],
+      "url": "https://github.com/nexus-research-lab/nexus-agent-sdk-bridge/releases/download/nxs-v0.1.32/nxs-0.1.32-darwin-amd64.tar.gz"
+    },
+    {
+      "archive": "tar.gz",
+      "filename": "nxs-0.1.32-darwin-arm64.tar.gz",
+      "goarch": "arm64",
+      "goos": "darwin",
+      "sha256": "829ac79fa8415351fc048845e3b754e5b6a37dcacec293cfa4a17a548176d3bf",
+      "sidecars": [
+        "rg"
+      ],
+      "url": "https://github.com/nexus-research-lab/nexus-agent-sdk-bridge/releases/download/nxs-v0.1.32/nxs-0.1.32-darwin-arm64.tar.gz"
+    },
+    {
+      "archive": "tar.gz",
+      "filename": "nxs-0.1.32-linux-amd64.tar.gz",
+      "goarch": "amd64",
+      "goos": "linux",
+      "sha256": "c2844aeaa8f22530e550e4fc81384c93d5cfe89040e8ec52a3f7e191059c0c60",
+      "sidecars": [
+        "rg"
+      ],
+      "url": "https://github.com/nexus-research-lab/nexus-agent-sdk-bridge/releases/download/nxs-v0.1.32/nxs-0.1.32-linux-amd64.tar.gz"
+    },
+    {
+      "archive": "tar.gz",
+      "filename": "nxs-0.1.32-linux-arm64.tar.gz",
+      "goarch": "arm64",
+      "goos": "linux",
+      "sha256": "4785fc326509c446f05d6986a172a64c727f9b21941f258348845ae6f500bdc8",
+      "sidecars": [
+        "rg"
+      ],
+      "url": "https://github.com/nexus-research-lab/nexus-agent-sdk-bridge/releases/download/nxs-v0.1.32/nxs-0.1.32-linux-arm64.tar.gz"
+    },
+    {
+      "archive": "zip",
+      "filename": "nxs-0.1.32-windows-amd64.zip",
+      "goarch": "amd64",
+      "goos": "windows",
+      "sha256": "7fd6b0f5ee2bb86a8054629983b3b3c56ea1aaa2c656a2e349487daca7d5db52",
+      "sidecars": [
+        "rg.exe"
+      ],
+      "url": "https://github.com/nexus-research-lab/nexus-agent-sdk-bridge/releases/download/nxs-v0.1.32/nxs-0.1.32-windows-amd64.zip"
+    },
+    {
+      "archive": "zip",
+      "filename": "nxs-0.1.32-windows-arm64.zip",
+      "goarch": "arm64",
+      "goos": "windows",
+      "sha256": "0aca0652e7753b3482606116cf928cc50aec63b95eda7cfb2382748e46f43e38",
+      "sidecars": [
+        "rg.exe"
+      ],
+      "url": "https://github.com/nexus-research-lab/nexus-agent-sdk-bridge/releases/download/nxs-v0.1.32/nxs-0.1.32-windows-arm64.zip"
+    }
+  ],
+  "min_bridge_version": "0.1.6",
+  "release_tag": "nxs-v0.1.32",
+  "ripgrep_version": "15.1.0",
+  "schema_version": 1,
+  "version": "0.1.32"
+}

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nexus-agent-sdk-python"
+version = "0.1.0"
+description = "Async Python SDK for the Nexus nxs agent runtime"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES"]
+authors = [{ name = "Nexus Research Lab" }]
+dependencies = ["jsonschema>=4.18", "referencing>=0.30"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nexus_agent_sdk"]
+
+[tool.hatch.build.targets.wheel.hooks.custom]
+path = "hatch_build.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "examples", "scripts", "hatch_build.py", "runtime-lock.json", "pyproject.toml", "README*", "LICENSE", "THIRD_PARTY_NOTICES", "CHANGELOG.md"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11",
+    "mypy>=1.15",
+    "types-jsonschema>=4.18",
+    "hatchling>=1.32.0",
+]
