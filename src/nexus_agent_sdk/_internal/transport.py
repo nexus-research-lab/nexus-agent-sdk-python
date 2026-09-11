@@ -4,6 +4,7 @@ import asyncio
 import json
 import os
 import signal
+import sys
 from collections.abc import AsyncGenerator
 from contextlib import suppress
 
@@ -42,7 +43,7 @@ class ProcessTransport:
                 stdout=asyncio.subprocess.PIPE,
                 stderr=asyncio.subprocess.PIPE,
                 limit=self.options.max_buffer_size,
-                start_new_session=os.name == "posix",
+                start_new_session=sys.platform != "win32",
             )
         )
         try:
@@ -132,13 +133,10 @@ class ProcessTransport:
                         process.wait(), self.options.shutdown_timeout
                     )
                 except TimeoutError:
-                    self._signal(
-                        signal.SIGKILL if os.name == "posix" else signal.SIGTERM,
-                        kill=True,
-                    )
+                    self._signal(signal.SIGTERM, kill=True)
                     await process.wait()
             # POSIX 的同组子进程也属于此 transport，父进程退出后仍需回收。
-            if os.name == "posix":
+            if sys.platform != "win32":
                 self._signal(signal.SIGKILL)
         finally:
             tasks = [task for task in (drain, self._stderr_task) if task is not None]
@@ -149,8 +147,8 @@ class ProcessTransport:
     def _signal(self, sig: int, *, kill: bool = False) -> None:
         assert self.process is not None
         with suppress(ProcessLookupError):
-            if os.name == "posix":
-                os.killpg(self.process.pid, sig)
+            if sys.platform != "win32":
+                os.killpg(self.process.pid, signal.SIGKILL if kill else sig)
             elif kill:
                 self.process.kill()
             else:
